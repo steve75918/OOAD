@@ -19,23 +19,6 @@ class Guitar:
     def get_serial_number():
         return serial_number;
 
-    def get_price():
-        return price;
 
-    def set_price():
-        return true;
-
-    def get_builder():
-        return builder;
-
-    def get_model():
-        return model;
-
-    def get_type():
-        return type;
-
-    def get_back_wood():
-        return back_wood;
-
-    def get_top_wood():
-        return top_wood;
+a = Guitar('1', 2, '3', '4', '5', '6', '7');
+a.get_serial_number();
