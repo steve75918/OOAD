@@ -1,13 +1,22 @@
+from Guitar import *
+
 class Inventory:
-    # type as Guitar
-    list
+    # list of Guitar
+    guitars = []
 
-    def add_guitar(serial_number, price, builder, model, type, back_wood, top_wood):
-        return true;
+    def __init__(self):
+        return
 
-    def get_guitar(serial_number):
-        #obj as guitar
+    def add_guitar(self, serial_number, price, builder, model, type, back_wood, top_wood):
+        self.guitars.append(Guitar(serial_number, price, builder, model, type, back_wood, top_wood))
+        return
+
+    def get_guitar(self, serial_number):
+        for i in self.guitars:
+            pass
         return obj;
 
-    def search(obj):
-        return obj;
+    # def search(obj):
+    #     return obj;
+    def test(self):
+        print(self.guitars)
