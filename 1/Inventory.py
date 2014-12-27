@@ -13,8 +13,10 @@ class Inventory:
 
     def get_guitar(self, serial_number):
         for i in self.guitars:
-            pass
-        return obj;
+            if i.get_serial_number() == serial_number:
+                return i;
+        # did not get anything return false
+        return;
 
     # def search(obj):
     #     return obj;
