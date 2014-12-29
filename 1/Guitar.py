@@ -1,42 +1,42 @@
 class Guitar:
-    serial_number = '10000'
-    price         = 0.0
-    builder       = ''
-    model         = ''
-    type          = ''
-    back_wood     = ''
-    top_wood      = ''
+    _serial_number = '10000'
+    _price         = 0.0
+    _builder       = ''
+    _model         = ''
+    _type          = ''
+    _back_wood     = ''
+    _top_wood      = ''
 
     def __init__(self, serial_number, price, builder, model, type, back_wood, top_wood):
-        self.serial_number  = serial_number
-        self.price          = price
-        self.builder        = builder
-        self.model          = model
-        self.type           = type
-        self.back_wood      = back_wood
-        self.top_wood       = top_wood
+        self._serial_number  = serial_number
+        self._price          = price
+        self._builder        = builder
+        self._model          = model
+        self._type           = type
+        self._back_wood      = back_wood
+        self._top_wood       = top_wood
         print("1")
 
     def get_serial_number(self):
-        return self.serial_number
+        return self._serial_number
 
     def get_price(self):
-        return self.price
+        return self._price
 
     def set_price(self, value):
-        self.price = value
+        self._price = value
 
     def get_builder(self):
-        return self.builder
+        return self._builder
 
     def get_model(self):
-        return self.model
+        return self._model
 
     def get_type(self):
-        return self.type
+        return self._type
 
     def get_back_wood(self):
-        return self.back_wood
+        return self._back_wood
 
     def get_top_wood(self):
-        return self.top_wood
+        return self._top_wood
