@@ -15,7 +15,6 @@ class Guitar:
         self._type           = type
         self._back_wood      = back_wood
         self._top_wood       = top_wood
-        print("1")
 
     def get_serial_number(self):
         return self._serial_number
