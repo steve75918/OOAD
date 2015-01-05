@@ -21,12 +21,29 @@ class Inventory:
 
     def search(self, search_obj):
         for i in self._guitars:
-            if i.get_serial_number() == serial_number:
-                # Ignore serial number since that's unique
+            # Ignore serial number since that's unique
 
-                builder = search_obj.get_builder()
+            builder = search_obj.get_builder()
+            if (not builder) and (builder != i.get_builder()):
+                continue
 
-                return i;
+            model = search_obj.get_model()
+            if (not model) and (model != i.get_model()):
+                continue
+
+            type = search_obj.get_type()
+            if (not type) and (type != i.get_type()):
+                continue
+
+            back_wood = search_obj.get_back_wood()
+            if (not back_wood) and (back_wood != i.get_back_wood()):
+                continue
+
+            top_wood = search_obj.get_top_wood()
+            if (not top_wood) and (top_wood != i.get_top_wood()):
+                continue
+
+            return;
 
         # did not get anything return false
         return;
