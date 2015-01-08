@@ -1,20 +1,14 @@
+from GuitarSpec import *
+
 class Guitar:
     _serial_number = '10000'
     _price         = 0.0
-    _builder       = ''
-    _model         = ''
-    _type          = ''
-    _back_wood     = ''
-    _top_wood      = ''
+    _spec          = None
 
     def __init__(self, serial_number, price, builder, model, type, back_wood, top_wood):
         self._serial_number  = serial_number
         self._price          = price
-        self._builder        = builder
-        self._model          = model
-        self._type           = type
-        self._back_wood      = back_wood
-        self._top_wood       = top_wood
+        self._spec           = GuitarSpec(builder, model, type, back_wood, top_wood)
 
     def get_serial_number(self):
         return self._serial_number
@@ -25,17 +19,5 @@ class Guitar:
     def set_price(self, value):
         self._price = value
 
-    def get_builder(self):
-        return self._builder
-
-    def get_model(self):
-        return self._model
-
-    def get_type(self):
-        return self._type
-
-    def get_back_wood(self):
-        return self._back_wood
-
-    def get_top_wood(self):
-        return self._top_wood
+    def get_spec(self):
+        return self._spec

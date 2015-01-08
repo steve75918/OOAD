@@ -19,26 +19,27 @@ class Inventory:
         # did not get anything return false
         return;
 
-    def search(self, search_obj):
+    def search(self, search_spec):
         matching_guitars = list()
 
         for i in self._guitars:
             # Ignore serial number since that's unique
+            guitar_spec = i.get_spec()
 
-            if (search_obj.get_builder() != i.get_builder()):
+            if (search_spec.get_builder() != guitar_spec.get_builder()):
                 continue
 
-            model = search_obj.get_model().lower()
-            if (not model) and (model != i.get_model().lower()):
+            model = search_spec.get_model().lower()
+            if (not model) and (model != guitar_spec.get_model().lower()):
                 continue
 
-            if (search_obj.get_type() != i.get_type()):
+            if (search_spec.get_type() != guitar_spec.get_type()):
                 continue
 
-            if (search_obj.get_back_wood() != i.get_back_wood()):
+            if (search_spec.get_back_wood() != guitar_spec.get_back_wood()):
                 continue
 
-            if (search_obj.get_top_wood() != i.get_top_wood()):
+            if (search_spec.get_top_wood() != guitar_spec.get_top_wood()):
                 continue
 
             matching_guitars.append(i)
