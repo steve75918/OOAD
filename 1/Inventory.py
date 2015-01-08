@@ -27,8 +27,8 @@ class Inventory:
             if (not builder) and (builder != i.get_builder()):
                 continue
 
-            model = search_obj.get_model()
-            if (not model) and (model != i.get_model()):
+            model = search_obj.get_model().lower()
+            if (not model) and (model != i.get_model().lower()):
                 continue
 
             type = search_obj.get_type()
