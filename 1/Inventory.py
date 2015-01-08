@@ -2,7 +2,7 @@ from Guitar import *
 
 class Inventory:
     # list of Guitar
-    _guitars = []
+    _guitars = list()
 
     def __init__(self):
         return
@@ -20,30 +20,28 @@ class Inventory:
         return;
 
     def search(self, search_obj):
+        matching_guitars = list()
+
         for i in self._guitars:
             # Ignore serial number since that's unique
 
-            builder = search_obj.get_builder()
-            if (not builder) and (builder != i.get_builder()):
+            if (search_obj.get_builder() != i.get_builder()):
                 continue
 
             model = search_obj.get_model().lower()
             if (not model) and (model != i.get_model().lower()):
                 continue
 
-            type = search_obj.get_type()
-            if (not type) and (type != i.get_type()):
+            if (search_obj.get_type() != i.get_type()):
                 continue
 
-            back_wood = search_obj.get_back_wood()
-            if (not back_wood) and (back_wood != i.get_back_wood()):
+            if (search_obj.get_back_wood() != i.get_back_wood()):
                 continue
 
-            top_wood = search_obj.get_top_wood()
-            if (not top_wood) and (top_wood != i.get_top_wood()):
+            if (search_obj.get_top_wood() != i.get_top_wood()):
                 continue
 
-            return;
+            matching_guitars.append(i)
 
         # did not get anything return false
-        return;
+        return matching_guitars;
