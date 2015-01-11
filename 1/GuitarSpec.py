@@ -4,6 +4,7 @@ class GuitarSpec:
     _type          = ''
     _back_wood     = ''
     _top_wood      = ''
+    _num_strings    = 0
 
     def __init__(self, builder, model, type, back_wood, top_wood):
         self._builder        = builder
@@ -26,3 +27,6 @@ class GuitarSpec:
 
     def get_model(self):
         return self._model
+
+    def get_num_strings(self):
+        return self._num_strings
