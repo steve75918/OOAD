@@ -7,14 +7,14 @@ class Inventory:
     def __init__(self):
         return
 
-    def add_guitar(self, serial_number, price, builder, model, type, back_wood, top_wood):
-        self._guitars.append(Guitar(serial_number, price, builder, model, type, back_wood, top_wood))
+    def add_guitar(self, serial_number, price, spec):
+        self._guitars.append(Guitar(serial_number, price, spec))
         return
 
     def get_guitar(self, serial_number):
-        for i in self._guitars:
-            if i.get_serial_number() == serial_number:
-                return i;
+        for guitar in self._guitars:
+            if guitar.get_serial_number() == serial_number:
+                return guitar;
 
         # did not get anything return false
         return;
@@ -22,27 +22,12 @@ class Inventory:
     def search(self, search_spec):
         matching_guitars = list()
 
-        for i in self._guitars:
+        for guitar in self._guitars:
             # Ignore serial number since that's unique
-            guitar_spec = i.get_spec()
+            guitar_spec = guitar.get_spec()
 
-            if (search_spec.get_builder() != guitar_spec.get_builder()):
-                continue
-
-            model = search_spec.get_model().lower()
-            if (not model) and (model != guitar_spec.get_model().lower()):
-                continue
-
-            if (search_spec.get_type() != guitar_spec.get_type()):
-                continue
-
-            if (search_spec.get_back_wood() != guitar_spec.get_back_wood()):
-                continue
-
-            if (search_spec.get_top_wood() != guitar_spec.get_top_wood()):
-                continue
-
-            matching_guitars.append(i)
+            if guitar_spec.matches(search_spec):
+                matching_guitars.append(guitar)
 
         # did not get anything return false
         return matching_guitars;

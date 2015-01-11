@@ -5,10 +5,10 @@ class Guitar:
     _price         = 0.0
     _spec          = None
 
-    def __init__(self, serial_number, price, builder, model, type, back_wood, top_wood):
-        self._serial_number  = serial_number
-        self._price          = price
-        self._spec           = GuitarSpec(builder, model, type, back_wood, top_wood)
+    def __init__(self, serial_number, price, spec):
+        self._serial_number = serial_number
+        self._price         = price
+        self._spec          = spec
 
     def get_serial_number(self):
         return self._serial_number
