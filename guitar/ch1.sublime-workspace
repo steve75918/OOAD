@@ -11,7 +11,7 @@
 			"file": "GuitarSpec.py",
 			"settings":
 			{
-				"buffer_size": 768,
+				"buffer_size": 1368,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,23 @@
 			"file": "Guitar.py",
 			"settings":
 			{
-				"buffer_size": 610,
+				"buffer_size": 521,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Inventory.py",
+			"settings":
+			{
+				"buffer_size": 870,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test.py",
+			"settings":
+			{
+				"buffer_size": 1558,
 				"line_ending": "Unix"
 			}
 		}
@@ -27,9 +43,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 150.0,
+		"height": 81.0,
 		"selected_items":
 		[
+			[
+				"package control: list",
+				"Package Control: List Packages"
+			],
 			[
 				"alignment",
 				"Preferences: Alignment File Settings – Default"
@@ -69,10 +89,11 @@
 	},
 	"expanded_folders":
 	[
-		"/home/chens/OOAD/1"
+		"/D/Dev/OOAD/1"
 	],
 	"file_history":
 	[
+		"/D/Dev/OOAD/.git/COMMIT_EDITMSG",
 		"/home/chens/.config/sublime-text-3/Packages/Terminal/Base File.sublime-settings",
 		"/home/chens/.config/sublime-text-3/Packages/Alignment/Default (Linux).sublime-keymap",
 		"/home/chens/.config/sublime-text-3/Packages/User/Python.sublime-settings",
@@ -114,7 +135,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -123,15 +144,75 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 768,
+						"buffer_size": 1368,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								563,
-								563
+								756,
+								771
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Guitar.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								119,
+								44
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Inventory.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 870,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								723,
+								730
 							]
 						],
 						"settings":
@@ -148,20 +229,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "Guitar.py",
+					"buffer": 3,
+					"file": "test.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 610,
+						"buffer_size": 1558,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								446,
-								446
+								1413,
+								1413
 							]
 						],
 						"settings":
