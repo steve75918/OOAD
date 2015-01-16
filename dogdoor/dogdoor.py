@@ -1,5 +1,8 @@
 class DogDoor:
-    _open;
+    _open = False;
+
+    def __init__(cls):
+        cls._open = False
 
     def open(cls):
         print("The dog door opens.")

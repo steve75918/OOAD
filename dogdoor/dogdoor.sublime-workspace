@@ -134,9 +134,7 @@
 	},
 	"expanded_folders":
 	[
-		"/D/OOAD",
-		"/D/OOAD/dogdoor",
-		"/D/OOAD/guitar"
+		"/D/Dev/OOAD/dogdoor"
 	],
 	"file_history":
 	[
@@ -175,7 +173,7 @@
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -233,13 +231,6 @@
 		"whole_word": false,
 		"wrap": true
 	},
-	"folders":
-	[
-		{
-			"follow_symlinks": true,
-			"path": "D:\\OOAD"
-		}
-	],
 	"groups":
 	[
 		{
@@ -516,7 +507,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 36.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -553,10 +544,10 @@
 	{
 		"height": 0.0
 	},
-	"project": "",
+	"project": "dogdoor.sublime-project",
 	"replace":
 	{
-		"height": 66.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
