@@ -1,11 +1,17 @@
 from dogdoor import *
+from remote  import *
 
-dogdoor_a = DogDoor()
-dogdoor_b = DogDoor()
+door = DogDoor()
+remote = Remote(door)
 
-dogdoor_a.open()
+print("Fido barks to go outside...")
+remote.press_button()
 
-# print(dogdoor_a.is_open())
-# print(dogdoor_b.is_open())
-print(dogdoor_a._open)
-print(dogdoor_b._open)
+print("\nFido has gone outside...")
+remote.press_button()
+
+print("\nFido's all done...")
+remote.press_button()
+
+print("\nFido's back inside...")
+remote.press_button()
