@@ -1,3 +1,6 @@
+import time
+import sched
+
 class Remote:
     _door = None
 
@@ -8,6 +11,15 @@ class Remote:
         print("Pressing the remote control button...")
 
         if cls._door.is_open() is True:
-            return cls._door.close()
+            cls._door.close()
+
+            return  True
         else:
-            return cls._door.open()
+            cls._door.open()
+
+            # auto close dogdoor after 5 seconds
+            s = sched.scheduler(time.time, time.sleep)
+            s.enter(5, 1, cls._door.close, argument=())
+            task = s.run()
+
+            return True
