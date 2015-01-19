@@ -1,5 +1,5 @@
-import time
-import sched
+import threading
+
 
 class Remote:
     _door = None
@@ -18,8 +18,7 @@ class Remote:
             cls._door.open()
 
             # auto close dogdoor after 5 seconds
-            s = sched.scheduler(time.time, time.sleep)
-            s.enter(5, 1, cls._door.close, argument=())
-            task = s.run()
+            task = threading.Timer(5, cls._door.close)
+            task.start()
 
             return True
