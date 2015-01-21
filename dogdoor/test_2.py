@@ -3,7 +3,7 @@ from remote  			import *
 from time    			import *
 from bark_recognizer 	import *
 
-door = DogDoor()
+door = DogDoor(3)
 remote = Remote(door)
 bark_recongnizer = BarkRecognizer(door)
 
