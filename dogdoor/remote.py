@@ -1,6 +1,3 @@
-import threading
-
-
 class Remote:
     _door = None
 
@@ -16,9 +13,5 @@ class Remote:
             return  True
         else:
             cls._door.open()
-
-            # auto close dogdoor after 5 seconds
-            task = threading.Timer(5, cls._door.close)
-            task.start()
 
             return True
