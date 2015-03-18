@@ -3,6 +3,7 @@ import threading
 class DogDoor:
     _open = False
     _auto_close_time = 0
+    _allowed_barks = []
 
     def __init__(cls, time=5):
         cls._open = False
@@ -25,3 +26,11 @@ class DogDoor:
 
     def is_open(cls):
         return cls._open
+
+    def add_allowed_bark(cls, bark):
+        cls._allowed_barks.append(bark)
+
+        return True
+
+    def get_allowed_barks(cls):
+        return cls._allowed_barks
