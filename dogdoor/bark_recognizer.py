@@ -1,5 +1,3 @@
-from dogdoor import *
-
 class BarkRecognizer:
     _door = None
 
