@@ -4,7 +4,6 @@ from Builder    import *
 from Type       import *
 from Wood       import *
 from GuitarSpec import *
-from Instrument import *
 
 # abstract test
 # aaa = Instrument("V95693", 1499.95, GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6));

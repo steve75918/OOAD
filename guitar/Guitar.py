@@ -7,4 +7,8 @@ class Guitar(Instrument):
     _spec          = None
 
     def __init__(self, serial_number, price, spec):
-        super(Guitar, self).__init__(serial_number, price, spec)
+        super().__init__(serial_number, price, spec)
+
+    # return an GuitarSpec
+    def get_spec(cls)->GuitarSpec:
+        return cls._spec
