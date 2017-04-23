@@ -5,28 +5,19 @@ class MandolinSpec(InstrumentSpec):
 
     def __init__(self, builder, model, type, style, back_wood, top_wood):
         super().__init__(builder, model, type, back_wood, top_wood)
-        self._style          = style
+        self._style = style
 
     def get_style(self):
         return self._style
 
     def matches(self, search_spec)->bool:
-        if (search_spec.get_builder() != self.get_builder()):
+        if not super().matches(search_spec):
             return False
 
-        model = search_spec.get_model().lower()
-        if (not model) and (model != self.get_model().lower()):
+        if not isinstance(search_spec, MandolinSpec):
             return False
 
-        if (search_spec.get_type() != self.get_type()):
-            return False
-
-        if (search_spec.get_back_wood() != self.get_back_wood()):
-            return False
-
-        if (search_spec.get_top_wood() != self.get_top_wood()):
+        if (search_spec.get_style() != self.get_style()):
             return False
 
         return True
-
-        

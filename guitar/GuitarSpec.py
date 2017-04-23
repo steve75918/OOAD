@@ -11,22 +11,13 @@ class GuitarSpec(InstrumentSpec):
         return self._num_strings
 
     def matches(self, search_spec)->bool:
-        if (search_spec.get_builder() != self.get_builder()):
+        if not super().matches(search_spec):
             return False
 
-        model = search_spec.get_model().lower()
-        if (not model) and (model != self.get_model().lower()):
+        if not isinstance(search_spec, GuitarSpec):
             return False
 
-        if (search_spec.get_type() != self.get_type()):
-            return False
-
-        if (search_spec.get_back_wood() != self.get_back_wood()):
-            return False
-
-        if (search_spec.get_top_wood() != self.get_top_wood()):
+        if (search_spec.get_num_strings() != self.get_num_strings()):
             return False
 
         return True
-
-        

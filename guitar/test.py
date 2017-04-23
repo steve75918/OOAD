@@ -1,18 +1,25 @@
-from Inventory  import *
-from Guitar     import *
-from Builder    import *
-from Type       import *
-from Wood       import *
-from GuitarSpec import *
+from Inventory    import *
+from Builder      import *
+from Type         import *
+from Wood         import *
+from Style        import *
+from GuitarSpec   import *
+from MandolinSpec import *
 
 # abstract test
 # aaa = Instrument("V95693", 1499.95, GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6));
 
 inventory = Inventory()
-inventory.add_guitar("V95693", 1499.95, GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6))
-inventory.add_guitar("V9512", 1549.95, GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6))
+# add guitar
+inventory.add_instrument("V95693", 1499.95, GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6))
+inventory.add_instrument("V9512", 1549.95, GuitarSpec(Builder.OLSON, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6))
 
-what_erin_likes = GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6)
+# add mandolin
+inventory.add_instrument("M1022", 1590.95, MandolinSpec(Builder.MARTIN, "Stratocastor", Type.ELECTRIC, Style.A, Wood.ALDER, Wood.ALDER))
+inventory.add_instrument("M1028", 1590.95, MandolinSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Style.F, Wood.ALDER, Wood.ALDER))
+
+#what_erin_likes = GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6)
+what_erin_likes = MandolinSpec(Builder.MARTIN, "Stratocastor", Type.ELECTRIC, Style.A, Wood.ALDER, Wood.ALDER)
 
 matching_guitars = inventory.search(what_erin_likes)
 

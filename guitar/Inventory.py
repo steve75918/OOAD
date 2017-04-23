@@ -1,5 +1,6 @@
 from Instrument import *
-
+from Guitar import *
+from Mandolin import *
 from GuitarSpec import *
 from MandolinSpec import *
 
@@ -11,7 +12,13 @@ class Inventory:
         return
 
     def add_instrument(self, serial_number:str, price:float, spec:InstrumentSpec):
-        self._instruments.append(Instrument(serial_number, price, spec))
+        if isinstance(spec, GuitarSpec):
+            instrument = Guitar(serial_number, price, spec)
+        elif isinstance(spec, MandolinSpec):
+            instrument = Mandolin(serial_number, price, spec)
+
+        self._instruments.append(instrument)
+
         return
 
     def get_instrument(self, serial_number:str)->Instrument:
@@ -20,8 +27,9 @@ class Inventory:
                 return instrument
 
         # did not get anything return false
-        return;
+        return
 
+    # search guitar
     def search(self, search_spec:GuitarSpec)->list:
         matching_guitars = list()
 
@@ -35,6 +43,7 @@ class Inventory:
         # did not get anything return false
         return matching_guitars
 
+    # search mandolin
     def search(self, search_spec:MandolinSpec)->list:
         matching_mandolins = list()
 

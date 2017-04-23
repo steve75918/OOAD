@@ -2,7 +2,7 @@ from abc import *
 from InstrumentSpec import *
 
 class Instrument(metaclass=ABCMeta):
-    def __init__(cls, serial_number:str, price:float, spec):
+    def __init__(cls, serial_number:str, price:float, spec:InstrumentSpec):
         cls._serial_number = serial_number
         cls._price         = price
         cls._spec          = spec
