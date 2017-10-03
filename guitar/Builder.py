@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Builder(Enum):
     FENDER   = "Fcoustic"
     MARTIN   = "Martin"
