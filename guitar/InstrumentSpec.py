@@ -1,9 +1,9 @@
 class InstrumentSpec():
     _properties = None
 
-    def __init__(self, builder, model, type, back_wood, top_wood):
+    def __init__(self, properties):
         # init dict properties
-        self._properties =
+        self._properties = properties
 
     def get_property(self, property):
         return self._properties.get(property)
@@ -12,21 +12,8 @@ class InstrumentSpec():
         return self._properties
 
     def matches(self, search_spec)->bool:
-        # 應為讀入 spec 內的屬性後再行比對
-        # if (search_spec.get_builder() != self.get_builder()):
-        #     return False
-
-        # model = search_spec.get_model().lower()
-        # if (not model) and (model != self.get_model().lower()):
-        #     return False
-
-        # if (search_spec.get_type() != self.get_type()):
-        #     return False
-
-        # if (search_spec.get_back_wood() != self.get_back_wood()):
-        #     return False
-
-        # if (search_spec.get_top_wood() != self.get_top_wood()):
-        #     return False
+        # 應為讀入 spec 內的屬性後再行比對，但完整比對僅利用 python 內建處理即可
+        if search_spec != self._properties:
+            return False
 
         return True
