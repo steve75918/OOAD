@@ -8,7 +8,7 @@ class InstrumentSpec():
     def get_property(self, property):
         return self._properties.get(property)
 
-    def get_properties():
+    def get_properties(self):
         return self._properties
 
     def matches(self, search_spec)->bool:

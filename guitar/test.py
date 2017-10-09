@@ -1,75 +1,108 @@
 from Inventory import *
+from InstrumentSpec import *
 from InstrumentType import *
 from Builder import *
 from Type import *
 from Wood import *
 from Style import *
 
-# abstract test
-# aaa = Instrument("V95693", 1499.95, GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER, 6));
-
 inventory = Inventory()
+
 # add guitar
-instrument_spec = {'instrumentType': InstrumentType.GUITAR, 'builder': Builder.FENDER, 'model': "Stratocastor",
-                   'type': Type.ELECTRIC, 'backWood': Wood.ALDER, 'topWood': Wood.ALDER, 'numStrings': 6}
+spec = {}
+spec['instrument_type'] = InstrumentType.GUITAR
+spec['builder']         = Builder.FENDER
+spec['type']            = Type.ELECTRIC
+spec['back_wood']       = Wood.ALDER
+spec['top_wood']        = Wood.ALDER
+spec['num_strings']     = 6
+spec['model']           = "Stratocastor"
+
+instrument_spec = InstrumentSpec(spec)
+
 inventory.add_instrument("V95693", 1499.95, instrument_spec)
+del spec, instrument_spec
 
-instrument_spec = {'instrumentType': InstrumentType.GUITAR, 'builder': Builder.OLSON, 'model': "Stratocastor",
-                   'type': Type.ELECTRIC, 'backWood': Wood.ALDER, 'topWood': Wood.ALDER, 'numStrings': 6}
-inventory.add_instrument("V9512", 1549.95, instrument_spec)
+spec = {}
+spec['instrument_type'] = InstrumentType.GUITAR
+spec['builder']         = Builder.OLSON
+spec['model']           = "Stratocastor"
+spec['type']            = Type.ACOUSTIC
+spec['top_wood']        = Wood.MAPLE
+spec['back_wood']       = Wood.MAHOGANY
+spec['num_strings']     = 6
 
-# add mandolin
-instrument_spec = {'instrumentType': InstrumentType.MANDOLIN, 'builder': Builder.MARTIN, 'model': "Stratocastor",
-                   'type': Type.ELECTRIC, 'backWood': Wood.ALDER, 'topWood': Wood.ALDER, 'style': Style.F}
-inventory.add_instrument("M1022", 2000.15, instrument_spec)
+instrument_spec = InstrumentSpec(spec)
 
-instrument_spec = {'instrumentType': InstrumentType.MANDOLIN, 'builder': Builder.FENDER, 'model': "Stratocastor",
-                   'type': Type.ELECTRIC, 'backWood': Wood.SITKA, 'topWood': Wood.ALDER, 'style': Style.A}
-inventory.add_instrument("M1028", 12231.99, instrument_spec)
+inventory.add_instrument("DV200", 1099.50, instrument_spec)
+del spec, instrument_spec
 
-what_guitar_erin_likes = {'instrumentType': InstrumentType.GUITAR, 'builder': Builder.FENDER,
-                          'model': "Stratocastor", 'type': Type.ELECTRIC, 'backWood': Wood.ALDER, 'topWood': Wood.ALDER, 'numStrings': 6}
-# what_madolin_erin_likes = MandolinSpec(Builder.MARTIN, "Stratocastor", Type.ELECTRIC, Style.A, Wood.ALDER, Wood.ALDER)
+# # add mandolin
+spec = {}
+spec['instrument_type'] = InstrumentType.MANDOLIN
+spec['builder']         = Builder.GIBSON
+spec['model']           = "Minecraft"
+spec['type']            = Type.ACOUSTIC
+spec['top_wood']        = Wood.MAPLE
+spec['back_wood']       = Wood.MAHOGANY
+spec['style']           = Style.F
 
-matching_guitars = inventory.search(what_guitar_erin_likes)
+instrument_spec = InstrumentSpec(spec)
 
-if matching_guitars:
+inventory.add_instrument("M170", 500.00, instrument_spec)
+del spec, instrument_spec
+
+spec = {}
+spec['instrument_type'] = InstrumentType.MANDOLIN
+spec['builder']         = Builder.GIBSON
+spec['model']           = "Minecraft"
+spec['type']            = Type.ACOUSTIC
+spec['top_wood']        = Wood.MAPLE
+spec['back_wood']       = Wood.BRAZILIAN_ROSEWOOD
+spec['style']           = Style.A
+
+instrument_spec = InstrumentSpec(spec)
+
+inventory.add_instrument("M1028", 1350.75, instrument_spec)
+del spec, instrument_spec
+
+# erin_likes_guitar
+# what_erin_likes = {}
+# what_erin_likes['instrument_type'] = InstrumentType.GUITAR
+# what_erin_likes['builder']         = Builder.FENDER
+# what_erin_likes['model']           = "Stratocastor"
+# what_erin_likes['type']            = Type.ELECTRIC
+# what_erin_likes['back_wood']       = Wood.ALDER
+# what_erin_likes['top_wood']        = Wood.ALDER
+# what_erin_likes['num_strings']     = 6
+
+# erin_likes_mandolin
+what_erin_likes = {}
+what_erin_likes['instrument_type'] = InstrumentType.MANDOLIN
+what_erin_likes['builder']         = Builder.GIBSON
+what_erin_likes['model']           = "Minecraft"
+what_erin_likes['type']            = Type.ACOUSTIC
+what_erin_likes['top_wood']        = Wood.MAPLE
+what_erin_likes['back_wood']       = Wood.BRAZILIAN_ROSEWOOD
+what_erin_likes['style']           = Style.A
+
+matching_instruments = inventory.search(what_erin_likes)
+
+if matching_instruments:
     print("Erin, you might like this")
 
-    for guitar in matching_guitars:
-        spec = guitar.get_spec().get_properties()
+    for instrument in matching_instruments:
+        spec = instrument.get_spec()
 
-        output = ''
-        output = "  We have a {instrument_type} with following properties: \n  You can have it for only ${price}!\n  ---"
-        output_tab = {
-            'instrument_type': spec.get_property('instrumentType').value,
-            'price': guitar.get_price(),
-        }
+        output = "    We have a {} with following properties: \n".format(spec.get_property('instrument_type').value)
+        print(output)
 
-        print(output.format(**output_tab))
+        for p_name, p_value in spec.get_properties().items():
+            if isinstance(p_value, Enum):
+                print("    {p_name}: {p_value}".format(p_name = p_name, p_value = p_value.value))
+            else:
+                print("    {p_name}: {p_value}".format(p_name = p_name, p_value = p_value))
+
+        print("\n    You can have it for only ${}!\n    ---".format(instrument.get_price()))
 else:
     print("Sorry, Erin, we have nothing for you.")
-
-# matching_madolins = inventory.search(what_madolin_erin_likes)
-
-# if matching_madolins:
-#     print("Erin, you might like this")
-
-#     for madolin in matching_madolins:
-#         spec = madolin.get_spec()
-
-#         output = '';
-#         output = "  We have a {builder} {model} {type}-type {style}-style madolin:\n    {backwood} back and sides,\n    {topwood} top.\n  You can have it for only ${price}!\n  ---"
-#         output_tab =    {
-#                             'builder'       : spec.get_builder().value,
-#                             'model'         : spec.get_model(),
-#                             'type'          : spec.get_type().value,
-#                             'backwood'      : spec.get_back_wood().value,
-#                             'topwood'       : spec.get_top_wood().value,
-#                             'price'         : madolin.get_price(),
-#                             'style'         : spec.get_style().value
-#                         }
-
-#         print(output.format(**output_tab))
-# else:
-#     print("Sorry, Erin, we have nothing for you.")

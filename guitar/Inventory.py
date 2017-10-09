@@ -31,7 +31,7 @@ class Inventory:
             # Ignore serial number since that's unique
             instrument_spec = instrument.get_spec()
 
-            if instrument_spec.matches(search_spec):
+            if instrument.get_spec().matches(search_spec):
                 matching_instruments.append(instrument)
 
         # did not get anything return false
