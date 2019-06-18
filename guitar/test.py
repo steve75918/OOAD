@@ -6,95 +6,194 @@ from Type import *
 from Wood import *
 from Style import *
 
+# add group of instruments into invenroty for test
+def initializeInventory(inventory):
+
+    specList = []
+
+    # add guitar 11277
+    properties = {}
+
+    properties['instrument_type'] = InstrumentType.GUITAR
+    properties['builder']         = Builder.COLLINGS
+    properties['model']           = "CJ"
+    properties['type']            = Type.ACOUSTIC
+    properties['num_strings']     = 6
+    properties['back_wood']       = Wood.INDIAN_ROSEWOOD
+    properties['top_wood']        = Wood.SITKA
+
+    spec = {}
+    spec['SerialNo'] = "11277"
+    spec['Value']    = 3999.95
+    spec['instrumentSpec'] = InstrumentSpec(properties)
+
+    specList.append(spec)
+
+    del spec, properties
+
+    # add guitar 122784
+    properties = {}
+
+    properties['instrument_type'] = InstrumentType.GUITAR
+    properties['builder']         = Builder.MARTIN
+    properties['model']           = "D-18"
+    properties['type']            = Type.ACOUSTIC
+    properties['num_strings']     = 6
+    properties['back_wood']       = Wood.MAHOGANY
+    properties['top_wood']        = Wood.ADIRONDACK
+
+    spec = {}
+    spec['SerialNo'] = "122784"
+    spec['Value']    = 5495.95
+    spec['instrumentSpec'] = InstrumentSpec(properties)
+
+    specList.append(spec)
+
+    del spec, properties
+
+    # add guitar V95693
+    properties = {}
+
+    properties['instrument_type'] = InstrumentType.GUITAR
+    properties['builder']         = Builder.FENDER
+    properties['model']           = "Stratocaster"
+    properties['type']            = Type.ELECTRIC
+    properties['num_strings']     = 6
+    properties['back_wood']       = Wood.ALDER
+    properties['top_wood']        = Wood.ALDER
+
+    spec = {}
+    spec['SerialNo'] = "V95693"
+    spec['Value']    = 1499.95
+    spec['instrumentSpec'] = InstrumentSpec(properties)
+
+    specList.append(spec)
+
+    del spec, properties
+
+    # add guitar V9512
+    properties = {}
+
+    properties['instrument_type'] = InstrumentType.GUITAR
+    properties['builder']         = Builder.FENDER
+    properties['model']           = "Stratocaster"
+    properties['type']            = Type.ELECTRIC
+    properties['num_strings']     = 6
+    properties['back_wood']       = Wood.ALDER
+    properties['top_wood']        = Wood.ALDER
+
+    spec = {}
+    spec['SerialNo'] = "V9512"
+    spec['Value']    = 1549.95
+    spec['instrumentSpec'] = InstrumentSpec(properties)
+
+    specList.append(spec)
+
+    del spec, properties
+
+    # add guitar 82765501
+    properties = {}
+
+    properties['instrument_type'] = InstrumentType.GUITAR
+    properties['builder']         = Builder.GIBSON
+    properties['model']           = "SG '61 Reissue"
+    properties['type']            = Type.ELECTRIC
+    properties['num_strings']     = 6
+    properties['back_wood']       = Wood.MAHOGANY
+    properties['top_wood']        = Wood.MAHOGANY
+
+    spec = {}
+    spec['SerialNo'] = "82765501"
+    spec['Value']    = 1890.95
+    spec['instrumentSpec'] = InstrumentSpec(properties)
+
+    specList.append(spec)
+
+    del spec, properties
+
+    # add guitar 70108276
+    properties = {}
+
+    properties['instrument_type'] = InstrumentType.GUITAR
+    properties['builder']         = Builder.GIBSON
+    properties['model']           = "Les Paul"
+    properties['type']            = Type.ELECTRIC
+    properties['num_strings']     = 6
+    properties['back_wood']       = Wood.MAPLE
+    properties['top_wood']        = Wood.MAPLE
+
+    spec = {}
+    spec['SerialNo'] = "70108276"
+    spec['Value']    = 2295.95
+    spec['instrumentSpec'] = InstrumentSpec(properties)
+
+    specList.append(spec)
+
+    del spec, properties
+
+    # add Mandolin 9019920
+    properties = {}
+
+    properties['instrument_type'] = InstrumentType.MANDOLIN
+    properties['builder']         = Builder.GIBSON
+    properties['model']           = "F5-G"
+    properties['type']            = Type.ACOUSTIC
+    properties['back_wood']       = Wood.MAPLE
+    properties['top_wood']        = Wood.MAPLE
+
+    spec = {}
+    spec['SerialNo'] = "9019920"
+    spec['Value']    = 5495.99
+    spec['instrumentSpec'] = InstrumentSpec(properties)
+
+    specList.append(spec)
+
+    del spec, properties
+
+    # add Banjo 8900231
+    properties = {}
+
+    properties['instrument_type'] = InstrumentType.BANJO
+    properties['builder']         = Builder.GIBSON
+    properties['model']           = "RB-3"
+    properties['num_strings']     = 5
+    properties['type']            = Type.ACOUSTIC
+    properties['back_wood']       = Wood.MAPLE
+
+    spec = {}
+    spec['SerialNo'] = "8900231"
+    spec['Value']    = 2945.95
+    spec['instrumentSpec'] = InstrumentSpec(properties)
+
+    specList.append(spec)
+
+    del spec, properties
+
+    for s in specList:
+        inventory.add_instrument(s['SerialNo'], s['Value'], s['instrumentSpec'])
+
+    return
+
+# main
 inventory = Inventory()
+initializeInventory(inventory)
 
-# add guitar
-spec = {}
-spec['instrument_type'] = InstrumentType.GUITAR
-spec['builder']         = Builder.FENDER
-spec['type']            = Type.ELECTRIC
-spec['back_wood']       = Wood.ALDER
-spec['top_wood']        = Wood.ALDER
-spec['num_strings']     = 6
-spec['model']           = "Stratocastor"
+# customer wanted
+properties = {}
+properties['builder']         = Builder.GIBSON
+properties['back_wood']       = Wood.MAPLE
 
-instrument_spec = InstrumentSpec(spec)
+clientSpec = InstrumentSpec(properties)
 
-inventory.add_instrument("V95693", 1499.95, instrument_spec)
-del spec, instrument_spec
+matchingInstruments = inventory.search(clientSpec)
 
-spec = {}
-spec['instrument_type'] = InstrumentType.GUITAR
-spec['builder']         = Builder.OLSON
-spec['model']           = "Stratocastor"
-spec['type']            = Type.ACOUSTIC
-spec['top_wood']        = Wood.MAPLE
-spec['back_wood']       = Wood.MAHOGANY
-spec['num_strings']     = 6
+if matchingInstruments:
+    print("You might like this")
 
-instrument_spec = InstrumentSpec(spec)
-
-inventory.add_instrument("DV200", 1099.50, instrument_spec)
-del spec, instrument_spec
-
-# # add mandolin
-spec = {}
-spec['instrument_type'] = InstrumentType.MANDOLIN
-spec['builder']         = Builder.GIBSON
-spec['model']           = "Minecraft"
-spec['type']            = Type.ACOUSTIC
-spec['top_wood']        = Wood.MAPLE
-spec['back_wood']       = Wood.MAHOGANY
-spec['style']           = Style.F
-
-instrument_spec = InstrumentSpec(spec)
-
-inventory.add_instrument("M170", 500.00, instrument_spec)
-del spec, instrument_spec
-
-spec = {}
-spec['instrument_type'] = InstrumentType.MANDOLIN
-spec['builder']         = Builder.GIBSON
-spec['model']           = "Minecraft"
-spec['type']            = Type.ACOUSTIC
-spec['top_wood']        = Wood.MAPLE
-spec['back_wood']       = Wood.BRAZILIAN_ROSEWOOD
-spec['style']           = Style.A
-
-instrument_spec = InstrumentSpec(spec)
-
-inventory.add_instrument("M1028", 1350.75, instrument_spec)
-del spec, instrument_spec
-
-# erin_likes_guitar
-# what_erin_likes = {}
-# what_erin_likes['instrument_type'] = InstrumentType.GUITAR
-# what_erin_likes['builder']         = Builder.FENDER
-# what_erin_likes['model']           = "Stratocastor"
-# what_erin_likes['type']            = Type.ELECTRIC
-# what_erin_likes['back_wood']       = Wood.ALDER
-# what_erin_likes['top_wood']        = Wood.ALDER
-# what_erin_likes['num_strings']     = 6
-
-# erin_likes_mandolin
-what_erin_likes = {}
-what_erin_likes['instrument_type'] = InstrumentType.MANDOLIN
-what_erin_likes['builder']         = Builder.GIBSON
-what_erin_likes['model']           = "Minecraft"
-what_erin_likes['type']            = Type.ACOUSTIC
-what_erin_likes['top_wood']        = Wood.MAPLE
-what_erin_likes['back_wood']       = Wood.BRAZILIAN_ROSEWOOD
-what_erin_likes['style']           = Style.A
-
-matching_instruments = inventory.search(what_erin_likes)
-
-if matching_instruments:
-    print("Erin, you might like this")
-
-    for instrument in matching_instruments:
+    for instrument in matchingInstruments:
         spec = instrument.get_spec()
 
-        output = "    We have a {} with following properties: \n".format(spec.get_property('instrument_type').value)
+        output = "    We have a serial #{} with following properties: \n".format(instrument.get_serial_number())
         print(output)
 
         for p_name, p_value in spec.get_properties().items():
@@ -105,4 +204,4 @@ if matching_instruments:
 
         print("\n    You can have it for only ${}!\n    ---".format(instrument.get_price()))
 else:
-    print("Sorry, Erin, we have nothing for you.")
+    print("Sorry, we have nothing for you.")
