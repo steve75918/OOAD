@@ -15,3 +15,8 @@ class Tile:
         self._units.remove(unit)
 
         return None
+
+    def _removeUnits(self) -> None:
+        self._units.clear()
+
+        return None
