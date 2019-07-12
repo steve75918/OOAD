@@ -47,5 +47,9 @@ class TestBoardBoard(unittest.TestCase):
         self.assertIsInstance(res, list)
         pass
 
+    def tearDown(self):
+        del self.board
+        pass
+
 if __name__ == '__main__':
     pass
