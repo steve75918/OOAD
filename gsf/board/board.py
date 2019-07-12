@@ -22,19 +22,19 @@ class Board:
 
     def addUnit(self, unit: Unit, x: int, y: int) -> None:
         tile = self.getTile(x, y)
-        tile._addUnit(unit)
+        tile.addUnit(unit)
 
         return None
 
     def removeUnit(self, unit: Unit, x: int, y: int) -> None:
         tile = self.getTile(x, y)
-        tile._removeUnit(unit)
+        tile.removeUnit(unit)
 
         return None
 
     def removeUnits(self, x: int, y: int) -> None:
         tile = self.getTile(x, y)
-        tile._removeUnits()
+        tile.removeUnits()
 
         return None
 
