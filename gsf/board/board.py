@@ -22,21 +22,21 @@ class Board:
 
     def addUnit(self, unit: Unit, x: int, y: int) -> None:
         tile = self.getTile(x, y)
-        tile.addUnit(unit)
+        tile._addUnit(unit)
 
         return None
 
     def removeUnit(self, unit: Unit, x: int, y: int) -> None:
         tile = self.getTile(x, y)
-        tile.removeUnit(unit)
+        tile._removeUnit(unit)
 
         return None
 
     def removeUnits(self, x: int, y: int) -> None:
         tile = self.getTile(x, y)
-        tile.removeUnits()
+        tile._removeUnits()
 
         return None
 
     def getUnits(self, x: int, y: int):
-        return self.getTile(x, y).getUnits()
+        return self.getTile(x, y)._getUnits()
