@@ -1,17 +1,17 @@
-from gsf.unit import Unit
+from gsf.unit.unit import Unit
 
 class Tile:
     _units = []
 
-    def __init__(cls):
+    def __init__(self):
+        pass
 
-
-    def _addUnit(cls, unit -> Unit) -> None:
-        cls._units.add(unit)
+    def _addUnit(self, unit: Unit) -> None:
+        self._units.append(unit)
 
         return None
 
-    def _removeUnit(cls, unit -> Unit) -> None:
-        cls._units.remove(unit)
+    def _removeUnit(self, unit: Unit) -> None:
+        self._units.remove(unit)
 
         return None
