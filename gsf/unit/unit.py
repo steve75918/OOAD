@@ -43,4 +43,12 @@ class Unit:
         return
 
     def getProperty(self, key):
+        if key is None:
+            raise RuntimeError('No properties for this Unit')
+            pass
+
+        if self.properties.get(key) is None:
+            raise RuntimeError('Request for non-existent property.')
+            pass
+
         return self.properties.get(key)

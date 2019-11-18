@@ -53,10 +53,9 @@ class TestUnitUnit(unittest.TestCase):
     def testPropertyNonExist(self):
         unit = Unit(1)
 
-        str = unit.getProperty('strength')
-
-        self.assertEqual(str, None)
-
+        with self.assertRaises(RuntimeError):
+            str = unit.getProperty('strength')
+            
         pass
 
 if __name__ == '__main__':
