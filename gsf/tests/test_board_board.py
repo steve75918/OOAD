@@ -14,14 +14,14 @@ class TestBoardBoard(unittest.TestCase):
         pass
 
     def test_addUnit(self):
-        anyUnit = Unit()
+        anyUnit = Unit(1)
         res = self.board.addUnit(anyUnit, 1, 1)
 
         self.assertIsNone(res)
         pass
 
     def test_removeUnit(self):
-        anyUnit = Unit()
+        anyUnit = Unit(1)
         self.board.addUnit(anyUnit, 1, 1)
 
         res= self.board.removeUnit(anyUnit, 1, 1)
@@ -31,7 +31,7 @@ class TestBoardBoard(unittest.TestCase):
 
     def test_removeUnits(self):
         for i in range(3):
-            self.board.addUnit(Unit(), 1, 1)
+            self.board.addUnit(Unit(i), 1, 1)
 
         res= self.board.removeUnits(1, 1)
 
@@ -40,7 +40,7 @@ class TestBoardBoard(unittest.TestCase):
 
     def test_getUnits(self):
         for i in range(3):
-            self.board.addUnit(Unit(), 2, 1)
+            self.board.addUnit(Unit(i), 2, 1)
 
         res = self.board.getUnits(2, 1)
 
