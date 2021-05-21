@@ -1,0 +1,101 @@
+Ajax Rapids
+HTML Heights
+JavaBeans Boulevard
+LSP Lane
+Head First Labs
+Objectiville PizzaStore
+UML Walk
+OOA&D Oval
+Head First Lounge
+Servlet Springs
+GoF Gardens
+JSP Junction
+JavaRanch
+Mighty Gumball, Inc.
+JSP Junction
+Design Patterns Plaza
+EJB Estates
+OCP Orchard
+SRP Square
+CSS Center
+Head First Theater
+DRY Drive
+Web Design Way
+SimUDuck Lake
+XHTML Expressway
+Choc-O-Holic, Inc.
+Infinite Circle
+Weather-O-Rama, Inc.
+Algebra Avenue
+PMP Place
+Boards'R'Us
+BREAK NECK PIZZA
+Objectiville Diner
+THE TiKiBEAN LOUNGE
+
+Booch Line
+Ajax Rapids
+HTML Heights
+JavaBeans Boulevard
+LSP Lane
+Head First Labs
+Objectiville PizzaStore
+UML Walk
+Ajax Rapids
+
+Gamma Line
+OOA&D Oval
+Head First Lounge
+OOA&D Oval
+
+Jacobson Line
+Servlet Springs
+GoF Gardens
+JSP Junction
+JavaRanch
+Mighty Gumball, Inc.
+Servlet Springs
+
+Liscov Line
+JSP Junction
+Design Patterns Plaza
+EJB Estates
+OCP Orchard
+SRP Square
+JSP Junction
+
+Meyer Line
+OOA&D Oval
+CSS Center
+Head First Theater
+DRY Drive
+Web Design Way
+SimUDuck Lake
+OOA&D Oval
+
+Rumbaugh Line
+XHTML Expressway
+Choc-O-Holic, Inc.
+Head First Theater
+Infinite Circle
+XHTML Expressway
+
+Wirfs-Brock Line
+HTML Heights
+Weather-O-Rama, Inc.
+XHTML Expressway
+LSP Lane
+Algebra Avenue
+DRY Drive
+PMP Place
+Web Design Way
+Boards'R'Us
+EJB Estates
+BREAK NECK PIZZA
+SRP Square
+Servlet Springs
+Objectiville Diner
+Head First Lounge
+THE TiKiBEAN LOUNGE
+UML Walk
+HTML Heights
