@@ -16,7 +16,7 @@ class test_station(unittest.TestCase):
 
     def test_equals(self):
         another_station = Station('TestStation2')
-        result = self.station.equals(another_station)
+        result = (self.station == another_station)
 
         self.assertIsInstance(result, bool)
 

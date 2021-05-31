@@ -9,8 +9,11 @@ class Station():
     def get_name(self)->str:
         return self.name
 
-    def equals(self, obj: object)->bool:
-        if isinstance(obj, Station):
-            return obj.get_name().casefold() == self.name.casefold()
+    def __eq__(self, other: object)->bool:
+        if isinstance(other, Station):
+            return other.__hash__() == self.__hash__()
         else:
             return False
+    
+    def __hash__(self):
+        return hash(self.name.casefold())
