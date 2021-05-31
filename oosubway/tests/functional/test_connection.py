@@ -35,7 +35,7 @@ class test_connection(unittest.TestCase):
 
     def test_equals_true(self):
         c = Connection(Station('TestStation1'), Station('TestStation2'), 'TestLine')
-        result = self.connection.equals(c)
+        result = (self.connection == c)
 
         self.assertTrue(result)
 
@@ -43,7 +43,7 @@ class test_connection(unittest.TestCase):
 
     def test_equals_false(self):
         c = Connection(Station('TeatConnection1'), Station('TeatConnection2'), 'TestLineName')
-        result = self.connection.equals(c)
+        result = (self.connection == c)
 
         self.assertFalse(result)
 

@@ -35,7 +35,7 @@ class test_connection(unittest.TestCase):
 
     def test_equals(self):
         c = Connection(Station('TeatConnection1'), Station('TeatConnection2'), 'TestLineName')
-        result = self.connection.equals(c)
+        result = (self.connection == c)
 
         self.assertIsInstance(result, bool)
 

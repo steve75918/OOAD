@@ -21,10 +21,14 @@ class Connection():
     def get_line_name(self)->str:
         return self.line_name
 
-    def equals(self, obj: object)->bool:
-        if isinstance(obj, Connection):
-            return (self.station1.equals(obj.get_station1()) 
-                and self.station2.equals(obj.get_station2()) 
-                and (self.line_name.casefold() == obj.get_line_name().casefold()))
+    def __eq__(self, other: object)->bool:
+        if isinstance(other, Connection):
+            return self.__hash__() == other.__hash__()
         else:
             return False
+
+    def __hash__(self):
+        return hash((self.station1.get_name().casefold(), 
+            self.station2.get_name().casefold(), 
+            self.line_name.casefold()
+        ))
