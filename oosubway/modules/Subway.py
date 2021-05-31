@@ -2,8 +2,8 @@ from .Station import Station
 from .Connection import Connection
 
 class Subway():
-    stations    = []
-    connections = []
+    stations    = set()
+    connections = set()
 
     def __init__(self):
         return None
@@ -11,14 +11,14 @@ class Subway():
     def add_station(self, station_name: str)->None:
         if not self.has_station(station_name):
             station = Station(station_name)
-            self.stations.append(station)
+            self.stations.add(station)
 
         return None
 
     def has_station(self, station_name: str)->bool:
         station = Station(station_name)
         
-        return any(s.equals(station) for s in self.stations)
+        return any(s == station for s in self.stations)
 
     def add_connection(self, station1_name: str, station2_name: str, line_name: str)->None:
         try:
@@ -35,8 +35,8 @@ class Subway():
             connection1 = Connection(station1, station2, line_name)
             connection2 = Connection(station2, station1, line_name)
 
-            self.connections.append(connection1)
-            self.connections.append(connection2)
+            self.connections.add(connection1)
+            self.connections.add(connection2)
         except RuntimeError as e:
             print('Oops, {0}'.format(e.args))
 

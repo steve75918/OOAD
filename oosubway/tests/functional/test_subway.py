@@ -48,8 +48,8 @@ class test_subway(unittest.TestCase):
         c1 = Connection(station1, station2, line_name)
         c2 = Connection(station2, station1, line_name)
 
-        self.assertTrue(any(c.equals(c1) for c in self.subway.connections))
-        self.assertTrue(any(c.equals(c2) for c in self.subway.connections))
+        self.assertTrue(any(c == c1) for c in self.subway.connections)
+        self.assertTrue(any(c == c2) for c in self.subway.connections)
 
         pass
 
