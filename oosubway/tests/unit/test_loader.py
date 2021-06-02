@@ -1,8 +1,8 @@
 import unittest
 from os import path
 
-from ...modules.Loader import Loader
-from ...modules.Subway import Subway
+from ...modules.loader import Loader
+from ...modules.subway import Subway
 
 class test_loader(unittest.TestCase):
     def setUp(self):

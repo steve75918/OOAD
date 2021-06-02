@@ -1,7 +1,5 @@
 import unittest
-from ...modules.Connection import Connection
-from ...modules.Station import Station
-from ...modules.Subway import Subway
+from ...modules.subway import Connection, Station, Subway
 
 class test_subway(unittest.TestCase):
     def setUp(self):

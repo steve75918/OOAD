@@ -1,6 +1,6 @@
 import unittest
-from ...modules.Connection import Connection
-from ...modules.Station import Station
+from ...modules.subway.Connection import Connection
+from ...modules.subway import Station
 
 class test_connection(unittest.TestCase):
     def setUp(self):

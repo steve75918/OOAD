@@ -1,7 +1,5 @@
 import unittest
-from ...modules.Connection import Connection
-from ...modules.Station import Station
-from ...modules.Subway import Subway
+from ...modules.subway import Subway
 
 class test_subway(unittest.TestCase):
     def setUp(self):
@@ -28,9 +26,11 @@ class test_subway(unittest.TestCase):
     def test_add_connection(self):
         station1_name = 'TestStation1'
         station2_name = 'TestStation2'
-        line     = 'TestLine'
+        line_name     = 'TestLine'
 
-        result = self.subway.add_connection(station1_name, station2_name, line)
+        self.subway.add_station(station1_name)
+        self.subway.add_station(station2_name)
+        result = self.subway.add_connection(station1_name, station2_name, line_name)
 
         self.assertIsNone(result)
 

@@ -1,7 +1,6 @@
-import os
-from io import FileIO, TextIOWrapper
+from io import TextIOWrapper
 
-from .Subway import Subway
+from ..subway import Subway
 
 class Loader():
     def __init__(self):
