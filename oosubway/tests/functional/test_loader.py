@@ -13,8 +13,8 @@ class test_loader(unittest.TestCase):
         file_path = path.join(path.dirname(__file__), '../test.txt')
         subway = self.loader.load_from_file(file_path)
 
-        self.assertEqual(len(subway.stations), 3)
-        self.assertEqual(len(subway.connections), 4)
+        self.assertEqual(len(subway.stations), 8)
+        self.assertEqual(len(subway.connections), 22)
 
         pass
 
