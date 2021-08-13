@@ -8,7 +8,7 @@ class test_subway(unittest.TestCase):
         pass
 
     def test_add_station(self):
-        station_name = 'TestStation'
+        station_name = 'TestStation1'
         result = self.subway.add_station(station_name)
 
         self.assertIsNone(result)
@@ -16,7 +16,7 @@ class test_subway(unittest.TestCase):
         pass
 
     def test_has_station(self):
-        station_name = 'TestStation'
+        station_name = 'TestStation1'
         result = self.subway.has_station(station_name)
 
         self.assertIsInstance(result, bool)
@@ -33,6 +33,28 @@ class test_subway(unittest.TestCase):
         result = self.subway.add_connection(station1_name, station2_name, line_name)
 
         self.assertIsNone(result)
+
+        pass
+
+    def test_get_directions(self):
+        start_station_name = 'TestStation1'
+        end_station_name   = 'TestStation2'
+
+        self.subway.add_station(start_station_name)
+        self.subway.add_station(end_station_name)
+
+        result = self.subway.get_directions(start_station_name, end_station_name)
+
+        self.assertIsInstance(result, list)
+
+        pass
+
+    def test_get_directions_stations_not_exist(self):
+        start_station_name = 'TestStation1'
+        end_station_name   = 'TestStation3'
+
+        with self.assertRaises(RuntimeError):
+            self.subway.get_directions(start_station_name, end_station_name)
 
         pass
 
