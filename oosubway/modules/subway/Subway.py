@@ -67,37 +67,42 @@ class Subway():
         if not self.has_station(start_station_name) or not self.has_station(end_station_name):
             raise RuntimeError(start_station_name + ' or ' + end_station_name + ' does not exist')
 
-        # use part of Dijkstra to find one path on graph, no garantee of distance
+        # use sort of A* to find one path on graph, no garantee of distance
         # because in such information, we can not estamate cost
         start = Station(start_station_name)
         end   = Station(end_station_name)
 
-        stations         = list(self.stations.copy())
-        finishedStations = set()
+        openList  = set()
+        closeList = set()
         previousStations = dict()
-        foundPath        = False
-      
-        for station in stations:
-            if start not in finishedStations:
-                station = start
-            
-            neighbors = self.network.get(station.get_name())
+
+        try:
+            # tier 1
+            neighbors = self.network.get(start.get_name())
             for neighbor in neighbors:
-                if neighbor in finishedStations:
-                    continue
+                previousStations[neighbor.get_name()] = start
+                if neighbor != end:
+                    openList.add(neighbor)
+                else:
+                    raise Exception('Founded')
 
-                previousStations[neighbor.get_name()] = station
+            closeList.add(start)
 
-                if neighbor == end:
-                    foundPath = True
-                    break
+            # others
+            for station in list(openList):
+                neighbors = self.network.get(station.get_name()) - closeList
+
+                for neighbor in neighbors:
+                    previousStations[neighbor.get_name()] = station
+                    if neighbor != end:
+                        openList.add(neighbor)
+                    else:
+                        raise Exception('Founded')
                 
-            finishedStations.add(station)
-            stations.remove(station)
-
-            if foundPath:
-                break
-
+                closeList.add(station)
+        except Exception as e:
+            pass
+        
         # after build data, find path and store into routes
         routes = list()
         foundRoute = False
