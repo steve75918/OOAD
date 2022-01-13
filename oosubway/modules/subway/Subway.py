@@ -72,7 +72,7 @@ class Subway():
         start = Station(start_station_name)
         end   = Station(end_station_name)
 
-        openList  = set()
+        openList  = list()
         closeList = set()
         previousStations = dict()
 
@@ -82,20 +82,22 @@ class Subway():
             for neighbor in neighbors:
                 previousStations[neighbor.get_name()] = start
                 if neighbor != end:
-                    openList.add(neighbor)
+                    if neighbor not in openList:
+                        openList.append(neighbor)
                 else:
                     raise Exception('Founded')
 
             closeList.add(start)
 
             # others
-            for station in list(openList):
+            for station in openList:
                 neighbors = self.network.get(station.get_name()) - closeList
 
                 for neighbor in neighbors:
                     previousStations[neighbor.get_name()] = station
                     if neighbor != end:
-                        openList.add(neighbor)
+                        if neighbor not in openList:
+                            openList.append(neighbor)
                     else:
                         raise Exception('Founded')
                 

@@ -7,7 +7,7 @@ from os import path
 from ...modules.printer import Printer
 from ...modules.loader import Loader
 
-class test_station(unittest.TestCase):
+class test_printer(unittest.TestCase):
     def setUp(self):
         self.printer = Printer()
 
@@ -25,7 +25,7 @@ class test_station(unittest.TestCase):
         subway = loader.load_from_file(file_path)
 
         start_station_name = 'TestStation1'
-        end_station_name   = 'TestStation6'
+        end_station_name   = 'TestStation10'
 
         routes = subway.get_directions(start_station_name, end_station_name)
 

@@ -39,9 +39,11 @@ class test_subway(unittest.TestCase):
     def test_get_directions(self):
         start_station_name = 'TestStation1'
         end_station_name   = 'TestStation2'
+        line_name          = 'TestLine'
 
         self.subway.add_station(start_station_name)
         self.subway.add_station(end_station_name)
+        result = self.subway.add_connection(start_station_name, end_station_name, line_name)
 
         result = self.subway.get_directions(start_station_name, end_station_name)
 
